@@ -337,8 +337,8 @@ $(function(){
 					console.log("답글 깊이 : " + item.cre_level);
 					console.log("답글 부모 id : " + item.parent_id);
 					
-					//처음에는 보여지지 않고 다음 답글부터 수평선에 보이게 처리
-					output += '<hr size="1" width="100%">';
+					//답글 수평선
+					//output += '<hr size="1" width="100%" id="test">';
 					
 					let sign_depth = '@';
 										
@@ -411,7 +411,6 @@ $(function(){
 	});
 	
 	/*----------답글 등록----------*/
-	//output += '<input type="button data-num"'+item.cre_num+'"data-parent="'+item.cbo_num+'"data-level="1" data-ref="" value="답글" class="reply-btn">'
 	$(document).on('click','.reply-btn,.reply2-btn',function(){
 		initReplyForm(); //모든 폼 초기화
 		$(this).hide();

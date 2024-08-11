@@ -209,8 +209,10 @@
 		]]>
 		START WITH r.cre_ref = #{cre_num} /*답글에 해당하는 댓글*/
 		CONNECT BY PRIOR r.cre_num = r.cre_ref
-		
-		ORDER SIBLINGS BY r.cre_rdate DESC
+		ORDER SIBLINGS BY 
+		    DECODE(r.cre_level, 1, r.cre_rdate, NULL) DESC,  -- 댓글과 대댓글은 최신순
+		    DECODE(r.cre_level, 1, NULL, r.cre_rdate) ASC    -- 대댓글 하위 댓글들은 오래된 순
+
 	</select>
 	<!-- 답글 등록 -->
 	<insert id="insertReply" parameterType="communityReplyVO">

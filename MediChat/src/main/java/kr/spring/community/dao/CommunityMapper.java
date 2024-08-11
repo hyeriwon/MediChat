@@ -80,6 +80,7 @@ public interface CommunityMapper {
 	
 	//댓글 삭제 시 답글 삭제
 	
+	
 	/*---댓글(답글) 좋아요---*/
 	/*
 	 * @Select("SELECT * FROM cboard_re_fav WHERE cre_num=#{cre_num} AND mem_num=#{mem_num}"
